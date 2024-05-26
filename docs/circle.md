@@ -58,3 +58,26 @@
 - `circle_id` - 固定するサークルのID
 ### レスポンス
 - `200 OK` - `{"result": "fixed"}`
+
+## `POST` - `/report/circle/:circle/`
+サークルを報告します。
+### クッキー
+- `csrftoken` - 適当なページから取得したCSRFトークン
+- `sessionid` - アカウントの有効なトークン
+### ヘッダー
+- `Content-Type` - 使用されているのは `multipart/form-data`
+- `X-Csrftoken` - クッキーと同様の値のCSRFトークン
+### ペイロード
+- `type` - 報告するタイプ
+### タイプ Enum
+- `harassment` - 嫌がらせ、いじめ
+- `discrimination` - 差別的または攻撃的な内容
+- `misinformation` - 誤った有害な情報
+- `violence` - 暴力的な発言
+- `privacy` - プライバシーの侵害
+- `spoofing` - なりすまし
+- `suicide` - 自殺や自傷行為
+- `spam` - スパムまたは誤解を招く内容
+- `sensitive` - センシティブまたは不快感のある内容
+### レスポンス
+- `200 OK` - 空のJsonが返されます(`{}`)
